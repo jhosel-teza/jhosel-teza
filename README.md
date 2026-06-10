@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=200&text=Jhosel%20Teza&fontSize=40&fontAlignY=35&animation=fadeIn" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00ff41,100:0d1117&height=250&section=header&text=Jhosel%20Teza&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=40" />
 </p>
 # 👋 Hola, soy Jhosel Teza
 
