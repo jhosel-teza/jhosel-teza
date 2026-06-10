@@ -1,13 +1,7 @@
 <p align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00ff41,100:0d1117&height=250&section=header&text=Jhosel%20Teza&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=40" />
-</p>
-<p align="center">
-<img src="..."/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00ff41,100:0d1117&height=250&section=header&text=Jhosel%20Teza&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=40" />
 </p>
 
-<h3 align="center">
-🔐 Cybersecurity Student | Ethical Hacking | Pentesting | Network Security
-</h3>
 # 👋 Hola, soy Jhosel Teza
 
 ## 🔐 Sobre mí
