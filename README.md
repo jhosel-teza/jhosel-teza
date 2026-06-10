@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00ff41,100:0d1117&height=250&section=header&text=Jhosel%20Teza&fontSize=50&fontColor=ffffff&animation=fadeIn&fontAlignY=40" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:00ff41&height=250&section=header&text=Jhosel%20Teza&fontSize=50&fontColor=ffffff" />
 </p>
 
 # 👋 Hola, soy Jhosel Teza
@@ -14,15 +14,14 @@
 
 🚀 En constante aprendizaje de nuevas tecnologías de seguridad informática
 
----
 ```bash
 ┌──(jhosel㉿kali)-[~]
 └─$ whoami
 
-Cybersecurity Student
-Pentester in Training
-Fortinet Security Enthusiast
-Network Security Learner
+🎓 Estudiante de Ciberseguridad
+🔐 Aprendiendo Pentesting y Ethical Hacking
+🌐 Redes, Linux y Fortinet
+🚀 En constante formación profesional
 ```
 ## 🛠️ Tecnologías y Herramientas
 <p align="center">
@@ -37,7 +36,6 @@ Network Security Learner
 - Cisco Networking
 - Git y GitHub
 - Python
-
 ---
 
 ## 📚 Actualmente Aprendiendo
@@ -47,15 +45,12 @@ Network Security Learner
 - Wazuh SIEM
 - FortiManager y FortiAnalyzer
 - Análisis de Vulnerabilidades
-
 ---
-
 ## 🎯 Objetivo Profesional
 
 Desarrollarme como Analista de Ciberseguridad y Pentester, contribuyendo a la protección de infraestructuras tecnológicas mediante la identificación y mitigación de vulnerabilidades.
 
 ---
-
 ## 📫 Contacto
 
 📧 Correo: jhoselteza4@gmail.com
@@ -69,7 +64,6 @@ Desarrollarme como Analista de Ciberseguridad y Pentester, contribuyendo a la pr
 🇵🇪 Perú
 
 ---
-
 > "La seguridad no es un producto, es un proceso."
 > ## 📊 Estadísticas GitHub
 
