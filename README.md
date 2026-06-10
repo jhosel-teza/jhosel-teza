@@ -16,7 +16,9 @@
 ---
 
 ## 🛠️ Tecnologías y Herramientas
-
+<p align="center">
+<img src="https://skillicons.dev/icons?i=linux,python,git,github,vscode" />
+</p>
 - Kali Linux
 - Nmap
 - Wireshark
@@ -51,8 +53,15 @@ Desarrollarme como Analista de Ciberseguridad y Pentester, contribuyendo a la pr
 
 🐙 GitHub: github.com/jhosel-teza
 
+📱 Teléfono: +51 906353020
+
+🔗 LinkedIn: linkedin.com/in/jhosel-teza-ponciano-a0b06b308/
+
 🇵🇪 Perú
 
 ---
 
 > "La seguridad no es un producto, es un proceso."
+> ## 📊 Estadísticas GitHub
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=jhosel-teza&show_icons=true&theme=dark)
