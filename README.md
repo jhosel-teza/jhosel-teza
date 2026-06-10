@@ -1,7 +1,3 @@
-<p align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:00ff41&height=250&section=header&text=Jhosel%20Teza&fontSize=50&fontColor=ffffff" />
-</p>
-
 # 👋 Hola, soy Jhosel Teza
 
 ## 🔐 Sobre mí
