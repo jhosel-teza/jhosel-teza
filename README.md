@@ -64,3 +64,11 @@ Desarrollarme como Analista de Ciberseguridad y Pentester, contribuyendo a la pr
 > ## 📊 Estadísticas GitHub
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=jhosel-teza&show_icons=true&theme=dark)
+
+## Spa Lucia – página web
+
+Sitio estático (`index.html`, `styles.css`, `script.js`) para el nail spa **Spa Lucia**.
+Ábrelo directamente en el navegador o publícalo con GitHub Pages.
+
+Para personalizar: cambia el número de WhatsApp en `script.js` (`WHATSAPP_NUMBER`),
+y las direcciones, precios y redes sociales en `index.html`.
