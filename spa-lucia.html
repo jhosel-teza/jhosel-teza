@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spa Lucia | Nail Spa & Belleza</title>
+  <meta name="description" content="Spa Lucia: manicure, pedicure, uñas acrílicas, gel, cejas, pestañas y depilación. Reserva tu cita por WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --pink: #e8a0b4;
+  --pink-dark: #c96d8a;
+  --rose: #f7dfe5;
+  --nude: #f3e6dd;
+  --cream: #fffaf7;
+  --ink: #3b2a30;
+  --muted: #7d6870;
+  --white: #ffffff;
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(201, 109, 138, .15);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-family: "Playfair Display", serif; line-height: 1.2; }
+em { font-style: italic; color: var(--pink-dark); }
+
+.container { width: min(1140px, 100% - 32px); margin-inline: auto; }
+
+/* Botones */
+.btn {
+  display: inline-block;
+  background: var(--pink-dark);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 500;
+  border: 2px solid var(--pink-dark);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: transform .2s, background .2s, box-shadow .2s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); background: #b85a78; }
+.btn--sm { padding: 9px 20px; font-size: .9rem; }
+.btn--outline { background: transparent; color: var(--pink-dark); }
+.btn--outline:hover { background: var(--pink-dark); color: var(--white); }
+.btn--light { background: var(--white); color: var(--pink-dark); border-color: var(--white); }
+.btn--light:hover { background: var(--rose); }
+.btn--block { width: 100%; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--pink-dark);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.eyebrow--light { color: var(--rose); }
+
+/* Barra superior */
+.topbar { background: var(--ink); color: var(--rose); text-align: center; font-size: .85rem; padding: 8px 16px; }
+
+/* Cabecera */
+.header { position: sticky; top: 0; z-index: 50; background: rgba(255, 250, 247, .92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rose); }
+.header__inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo__mark {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+  color: var(--white); font-family: "Playfair Display", serif; font-size: 1.4rem; font-weight: 700;
+}
+.logo__text { font-family: "Playfair Display", serif; font-size: 1.5rem; font-weight: 700; }
+.logo--light .logo__text { color: var(--white); }
+.logo--light em { color: var(--pink); }
+
+.nav { display: flex; align-items: center; gap: 26px; }
+.nav a:not(.btn) { font-size: .95rem; position: relative; }
+.nav a:not(.btn)::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--pink-dark); transition: width .25s; }
+.nav a:not(.btn):hover::after { width: 100%; }
+
+.nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: .3s; }
+
+/* Hero */
+.hero { background: linear-gradient(160deg, var(--rose) 0%, var(--cream) 60%); padding: 70px 0 90px; overflow: hidden; }
+.hero__inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 18px; }
+.hero p { color: var(--muted); max-width: 520px; margin-bottom: 30px; }
+.hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero__stats { list-style: none; display: flex; gap: 36px; margin-top: 40px; flex-wrap: wrap; }
+.hero__stats strong { display: block; font-family: "Playfair Display", serif; font-size: 2rem; color: var(--pink-dark); }
+.hero__stats span { font-size: .85rem; color: var(--muted); }
+
+.hero__art { position: relative; height: 440px; }
+.blob { position: absolute; border-radius: 50%; filter: blur(2px); }
+.blob--1 { width: 360px; height: 360px; background: var(--pink); opacity: .45; top: 30px; right: 20px; border-radius: 60% 40% 55% 45%; animation: float 8s ease-in-out infinite; }
+.blob--2 { width: 220px; height: 220px; background: var(--nude); bottom: 0; left: 20px; animation: float 10s ease-in-out infinite reverse; }
+.hand {
+  position: absolute; inset: 70px 70px 60px 90px;
+  background: linear-gradient(180deg, #f6d9c8, #eec4ad);
+  border-radius: 140px 140px 60px 60px;
+  box-shadow: var(--shadow);
+  display: flex; justify-content: center; align-items: flex-start; gap: 14px; padding-top: 34px;
+}
+.nail { width: 34px; height: 54px; border-radius: 18px 18px 10px 10px; background: linear-gradient(180deg, var(--pink-dark), var(--pink)); box-shadow: inset 0 4px 6px rgba(255,255,255,.5); }
+.n1 { margin-top: 50px; } .n2 { margin-top: 10px; } .n3 { margin-top: 0; } .n4 { margin-top: 12px; } .n5 { margin-top: 70px; width: 30px; }
+.badge-float { position: absolute; bottom: 30px; right: 0; background: var(--white); padding: 12px 18px; border-radius: 999px; box-shadow: var(--shadow); font-weight: 500; font-size: .9rem; animation: float 6s ease-in-out infinite; }
+
+@keyframes float { 50% { transform: translateY(-14px); } }
+
+/* Beneficios */
+.features { margin-top: -50px; position: relative; z-index: 2; }
+.features__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.feature { background: var(--white); padding: 26px 22px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
+.feature span { font-size: 2rem; }
+.feature h3 { font-size: 1.1rem; margin: 8px 0 6px; }
+.feature p { font-size: .88rem; color: var(--muted); }
+
+/* Secciones */
+.section { padding: 90px 0; }
+.section--soft { background: var(--nude); }
+.section__head { text-align: center; max-width: 620px; margin: 0 auto 50px; }
+.section__head h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 10px; }
+.section__head p { color: var(--muted); }
+
+/* Tarjetas */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card { background: var(--white); border-radius: var(--radius); padding: 34px 28px; border: 1px solid var(--rose); transition: transform .25s, box-shadow .25s; }
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.card__icon { width: 60px; height: 60px; border-radius: 50%; background: var(--rose); display: grid; place-items: center; font-size: 1.6rem; margin-bottom: 18px; }
+.card h3 { font-size: 1.35rem; margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: .95rem; }
+
+/* Precios */
+.tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+.tab { font-family: inherit; font-size: .95rem; padding: 10px 22px; border-radius: 999px; border: 1px solid var(--pink); background: transparent; color: var(--ink); cursor: pointer; transition: .2s; }
+.tab:hover { background: var(--rose); }
+.tab.is-active { background: var(--pink-dark); border-color: var(--pink-dark); color: var(--white); }
+.price-panel { display: none; max-width: 720px; margin: 0 auto; background: var(--white); border-radius: var(--radius); padding: 18px 34px; box-shadow: var(--shadow); }
+.price-panel.is-active { display: block; animation: fade .35s ease; }
+.prices { list-style: none; }
+.prices li { display: flex; align-items: baseline; gap: 10px; padding: 16px 0; border-bottom: 1px dashed var(--rose); }
+.prices li:last-child { border-bottom: 0; }
+.prices li span { flex: 1; }
+.prices li b { color: var(--pink-dark); font-weight: 600; white-space: nowrap; }
+@keyframes fade { from { opacity: 0; transform: translateY(8px); } }
+
+/* Promo */
+.promo { background: linear-gradient(120deg, var(--pink-dark), var(--pink)); color: var(--white); padding: 60px 0; }
+.promo__inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+.promo h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); }
+.promo em { color: var(--white); }
+.promo__price s { opacity: .75; margin-right: 10px; }
+.promo__price strong { font-family: "Playfair Display", serif; font-size: 2.8rem; }
+
+/* Galería */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 220px; gap: 16px; }
+.g { border-radius: var(--radius); position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 16px; transition: transform .3s; }
+.g:hover { transform: scale(1.02); }
+.g span { background: rgba(255,255,255,.9); padding: 6px 14px; border-radius: 999px; font-size: .85rem; font-weight: 500; }
+.g1 { background: radial-gradient(circle at 30% 30%, #f3d3c3, #d9a88f); grid-row: span 2; }
+.g2 { background: linear-gradient(180deg, #fff 0 30%, #f5d6dd 30%); }
+.g3 { background: radial-gradient(circle, #fff6 1px, transparent 2px) 0 0/12px 12px, linear-gradient(135deg, #c9a0dc, #e8a0b4); }
+.g4 { background: linear-gradient(180deg, #fdf1ee, #f2c2cc); }
+.g5 { background: linear-gradient(135deg, #b3133b, #e0455f); }
+.g6 { grid-column: span 2; background: radial-gradient(circle at 20% 30%, #ffd1dc 0 18px, transparent 19px), radial-gradient(circle at 70% 60%, #ffe8a3 0 14px, transparent 15px), linear-gradient(135deg, #d8ecd6, #f7dfe5); }
+
+/* Testimonios */
+.testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonials blockquote { background: var(--white); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow); position: relative; }
+.testimonials blockquote::before { content: "★★★★★"; color: #e6b34a; letter-spacing: 2px; display: block; margin-bottom: 12px; }
+.testimonials p { font-style: italic; color: var(--muted); margin-bottom: 14px; }
+.testimonials cite { font-style: normal; font-weight: 600; }
+
+/* Locales */
+.locations { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.location { background: var(--white); border: 1px solid var(--rose); border-radius: var(--radius); padding: 30px; }
+.location h3 { font-size: 1.3rem; margin-bottom: 10px; }
+.location p { color: var(--muted); font-size: .95rem; margin-bottom: 8px; }
+
+/* Reserva */
+.booking { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 50px; align-items: center; }
+.booking__text h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 12px; }
+.booking__text p { color: var(--muted); }
+.booking__form { background: var(--white); padding: 34px; border-radius: var(--radius); box-shadow: var(--shadow); display: grid; gap: 16px; }
+.booking__form label { display: grid; gap: 6px; font-size: .9rem; font-weight: 500; }
+.booking__form input, .booking__form select {
+  font-family: inherit; font-size: 1rem; padding: 12px 14px;
+  border: 1px solid var(--rose); border-radius: 12px; background: var(--cream); color: var(--ink);
+}
+.booking__form input:focus, .booking__form select:focus { outline: 2px solid var(--pink); border-color: var(--pink); }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.booking__form input, .booking__form select { width: 100%; min-width: 0; }
+
+/* Pie */
+.footer { background: var(--ink); color: #e9d9de; padding: 60px 0 24px; }
+.footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; }
+.footer p { font-size: .92rem; margin-top: 10px; }
+.footer h4 { color: var(--white); margin-bottom: 6px; }
+.footer a:hover { color: var(--pink); }
+.footer__copy { text-align: center; border-top: 1px solid rgba(255,255,255,.1); margin-top: 40px; padding-top: 20px; font-size: .85rem; }
+
+/* WhatsApp */
+.whatsapp {
+  position: fixed; right: 22px; bottom: 22px; z-index: 60;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #25d366; color: var(--white);
+  display: grid; place-items: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, .45);
+  animation: pulse 2.4s infinite;
+}
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); } 70% { box-shadow: 0 0 0 16px rgba(37,211,102,0); } }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .hero__inner, .booking { grid-template-columns: minmax(0, 1fr); }
+  .hero__art { height: 360px; max-width: 420px; margin-inline: auto; width: 100%; }
+  .features__grid { grid-template-columns: repeat(2, 1fr); }
+  .cards, .testimonials, .locations { grid-template-columns: repeat(2, 1fr); }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .nav-toggle { display: block; }
+  .nav {
+    position: absolute; top: 76px; left: 0; right: 0;
+    flex-direction: column; gap: 18px; padding: 24px;
+    background: var(--cream); border-bottom: 1px solid var(--rose);
+    display: none;
+  }
+  .nav.is-open { display: flex; }
+  .nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+@media (max-width: 600px) {
+  .section { padding: 64px 0; }
+  .features__grid, .cards, .testimonials, .locations, .footer__grid { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+  .g1 { grid-row: span 1; }
+  .g6 { grid-column: span 1; }
+  .hand { inset: 60px 30px 50px 40px; gap: 8px; }
+  .nail { width: 26px; height: 42px; }
+  .price-panel { padding: 10px 20px; }
+  .promo__inner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <div class="topbar">
+    <p>✨ 20% de descuento en tu primera visita · Reserva por WhatsApp</p>
+  </div>
+
+  <!-- Cabecera -->
+  <header class="header" id="inicio">
+    <div class="container header__inner">
+      <a href="#inicio" class="logo">
+        <span class="logo__mark">L</span>
+        <span class="logo__text">Spa <em>Lucia</em></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#precios">Precios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#locales">Locales</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#reservar" class="btn btn--sm">Reservar cita</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <span class="eyebrow">Nail Spa & Belleza</span>
+        <h1>Tus manos merecen <em>lo mejor</em></h1>
+        <p>En Spa Lucia te consentimos con manicure, pedicure, uñas acrílicas y en gel, cejas, pestañas y mucho más. Productos de calidad, ambiente relajante y protocolos de higiene estrictos.</p>
+        <div class="hero__actions">
+          <a href="#reservar" class="btn">Reserva tu cita</a>
+          <a href="#servicios" class="btn btn--outline">Ver servicios</a>
+        </div>
+        <ul class="hero__stats">
+          <li><strong>+10</strong><span>años de experiencia</span></li>
+          <li><strong>+5k</strong><span>clientas felices</span></li>
+          <li><strong>3</strong><span>locales</span></li>
+        </ul>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="blob blob--1"></div>
+        <div class="blob blob--2"></div>
+        <div class="hand">
+          <div class="nail n1"></div><div class="nail n2"></div><div class="nail n3"></div><div class="nail n4"></div><div class="nail n5"></div>
+        </div>
+        <div class="badge-float">💅 Diseños a tu gusto</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="features">
+    <div class="container features__grid">
+      <div class="feature"><span>🧼</span><h3>Higiene total</h3><p>Instrumentos esterilizados y limas descartables en cada servicio.</p></div>
+      <div class="feature"><span>🌸</span><h3>Productos premium</h3><p>Trabajamos con marcas reconocidas de esmaltes y geles.</p></div>
+      <div class="feature"><span>👩‍🎨</span><h3>Expertas</h3><p>Manicuristas certificadas y en constante capacitación.</p></div>
+      <div class="feature"><span>☕</span><h3>Relájate</h3><p>Ambiente cómodo, música suave y una bebida de cortesía.</p></div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Lo que hacemos</span>
+        <h2>Nuestros servicios</h2>
+        <p>Todo lo que necesitas para lucir hermosa, en un solo lugar.</p>
+      </header>
+      <div class="cards">
+        <article class="card"><div class="card__icon">💅</div><h3>Manicure</h3><p>Tradicional, spa, semipermanente y francesa.</p></article>
+        <article class="card"><div class="card__icon">🦶</div><h3>Pedicure</h3><p>Exfoliación, hidratación y masaje relajante.</p></article>
+        <article class="card"><div class="card__icon">✨</div><h3>Uñas acrílicas</h3><p>Esculpidas, con tips y diseños personalizados.</p></article>
+        <article class="card"><div class="card__icon">💎</div><h3>Uñas en gel</h3><p>Polygel, soft gel y baño de gel.</p></article>
+        <article class="card"><div class="card__icon">👁️</div><h3>Cejas y pestañas</h3><p>Diseño de cejas, laminado y lifting de pestañas.</p></article>
+        <article class="card"><div class="card__icon">🌿</div><h3>Depilación</h3><p>Con cera tibia, rostro y cuerpo.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precios -->
+  <section class="section section--soft" id="precios">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Carta de servicios</span>
+        <h2>Precios</h2>
+        <p>Precios referenciales en soles (S/). Consulta promociones vigentes.</p>
+      </header>
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" data-tab="manos" role="tab">Manos</button>
+        <button class="tab" data-tab="pies" role="tab">Pies</button>
+        <button class="tab" data-tab="unas" role="tab">Uñas artificiales</button>
+        <button class="tab" data-tab="rostro" role="tab">Cejas & pestañas</button>
+        <button class="tab" data-tab="depilacion" role="tab">Depilación</button>
+      </div>
+
+      <div class="price-panel is-active" id="manos">
+        <ul class="prices">
+          <li><span>Manicure tradicional</span><b>S/ 20</b></li>
+          <li><span>Manicure spa</span><b>S/ 35</b></li>
+          <li><span>Manicure semipermanente</span><b>S/ 45</b></li>
+          <li><span>Manicure francesa semipermanente</span><b>S/ 55</b></li>
+          <li><span>Retiro de semipermanente</span><b>S/ 15</b></li>
+          <li><span>Diseño por uña (desde)</span><b>S/ 3</b></li>
+        </ul>
+      </div>
+      <div class="price-panel" id="pies">
+        <ul class="prices">
+          <li><span>Pedicure tradicional</span><b>S/ 30</b></li>
+          <li><span>Pedicure spa</span><b>S/ 50</b></li>
+          <li><span>Pedicure semipermanente</span><b>S/ 55</b></li>
+          <li><span>Pedicure + manicure tradicional</span><b>S/ 45</b></li>
+          <li><span>Pedicure + manicure semipermanente</span><b>S/ 90</b></li>
+        </ul>
+      </div>
+      <div class="price-panel" id="unas">
+        <ul class="prices">
+          <li><span>Uñas acrílicas (set completo)</span><b>S/ 90</b></li>
+          <li><span>Mantenimiento acrílicas</span><b>S/ 70</b></li>
+          <li><span>Polygel (set completo)</span><b>S/ 95</b></li>
+          <li><span>Soft gel / tips</span><b>S/ 80</b></li>
+          <li><span>Baño de gel</span><b>S/ 60</b></li>
+          <li><span>Retiro de acrílicas o gel</span><b>S/ 25</b></li>
+        </ul>
+      </div>
+      <div class="price-panel" id="rostro">
+        <ul class="prices">
+          <li><span>Diseño de cejas</span><b>S/ 25</b></li>
+          <li><span>Laminado de cejas</span><b>S/ 70</b></li>
+          <li><span>Lifting de pestañas</span><b>S/ 80</b></li>
+          <li><span>Pestañas pelo a pelo</span><b>S/ 120</b></li>
+          <li><span>Tinte de cejas</span><b>S/ 20</b></li>
+        </ul>
+      </div>
+      <div class="price-panel" id="depilacion">
+        <ul class="prices">
+          <li><span>Bozo</span><b>S/ 12</b></li>
+          <li><span>Rostro completo</span><b>S/ 35</b></li>
+          <li><span>Axilas</span><b>S/ 20</b></li>
+          <li><span>Piernas completas</span><b>S/ 60</b></li>
+          <li><span>Bikini</span><b>S/ 35</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promos -->
+  <section class="promo">
+    <div class="container promo__inner">
+      <div>
+        <span class="eyebrow eyebrow--light">Promoción del mes</span>
+        <h2>Mani + Pedi semipermanente</h2>
+        <p>Combo completo con diseño en 2 uñas de regalo.</p>
+      </div>
+      <div class="promo__price"><s>S/ 100</s><strong>S/ 79</strong></div>
+      <a href="#reservar" class="btn btn--light">¡Lo quiero!</a>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="section" id="galeria">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Inspírate</span>
+        <h2>Galería de diseños</h2>
+        <p>Algunos de nuestros trabajos favoritos.</p>
+      </header>
+      <div class="gallery">
+        <div class="g g1"><span>Nude elegante</span></div>
+        <div class="g g2"><span>Francesa clásica</span></div>
+        <div class="g g3"><span>Glitter</span></div>
+        <div class="g g4"><span>Baby boomer</span></div>
+        <div class="g g5"><span>Rojo pasión</span></div>
+        <div class="g g6"><span>Floral</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="section section--soft">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Opiniones</span>
+        <h2>Lo que dicen nuestras clientas</h2>
+      </header>
+      <div class="testimonials">
+        <blockquote><p>“Me encantó la atención, súper limpias y puntuales. Mis uñas duraron perfectas más de tres semanas.”</p><cite>— Andrea M.</cite></blockquote>
+        <blockquote><p>“El pedicure spa es lo máximo, salí como nueva. Ya es mi lugar favorito.”</p><cite>— Carla R.</cite></blockquote>
+        <blockquote><p>“Hicieron exactamente el diseño que les mostré. ¡Recomendadísimo!”</p><cite>— Valeria P.</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locales -->
+  <section class="section" id="locales">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Visítanos</span>
+        <h2>Nuestros locales</h2>
+      </header>
+      <div class="locations">
+        <div class="location"><h3>📍 Miraflores</h3><p>Av. Ejemplo 123, Miraflores, Lima</p><p>Lun – Sáb: 9:00 a.m. – 9:00 p.m.<br>Dom: 10:00 a.m. – 6:00 p.m.</p></div>
+        <div class="location"><h3>📍 San Isidro</h3><p>Calle Ejemplo 456, San Isidro, Lima</p><p>Lun – Sáb: 9:00 a.m. – 9:00 p.m.<br>Dom: 10:00 a.m. – 6:00 p.m.</p></div>
+        <div class="location"><h3>📍 Surco</h3><p>Av. Ejemplo 789, Santiago de Surco, Lima</p><p>Lun – Sáb: 9:00 a.m. – 9:00 p.m.<br>Dom: 10:00 a.m. – 6:00 p.m.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reserva -->
+  <section class="section section--soft" id="reservar">
+    <div class="container booking">
+      <div class="booking__text">
+        <span class="eyebrow">Reserva online</span>
+        <h2>Agenda tu cita</h2>
+        <p>Completa el formulario y te enviaremos la confirmación por WhatsApp en minutos.</p>
+      </div>
+      <form class="booking__form" id="bookingForm">
+        <label>Nombre<input type="text" name="nombre" required placeholder="Tu nombre"></label>
+        <label>Servicio
+          <select name="servicio" required>
+            <option value="">Elige un servicio</option>
+            <option>Manicure</option>
+            <option>Pedicure</option>
+            <option>Mani + Pedi</option>
+            <option>Uñas acrílicas</option>
+            <option>Uñas en gel</option>
+            <option>Cejas y pestañas</option>
+            <option>Depilación</option>
+          </select>
+        </label>
+        <label>Local
+          <select name="local" required>
+            <option>Miraflores</option>
+            <option>San Isidro</option>
+            <option>Surco</option>
+          </select>
+        </label>
+        <div class="row">
+          <label>Fecha<input type="date" name="fecha" required></label>
+          <label>Hora<input type="time" name="hora" required></label>
+        </div>
+        <button type="submit" class="btn btn--block">Enviar por WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Pie -->
+  <footer class="footer" id="contacto">
+    <div class="container footer__grid">
+      <div>
+        <a href="#inicio" class="logo logo--light"><span class="logo__mark">L</span><span class="logo__text">Spa <em>Lucia</em></span></a>
+        <p>Nail spa y centro de belleza. Hacemos que te sientas linda y relajada.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>📞 +51 999 999 999</p>
+        <p>✉️ hola@spalucia.pe</p>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <p><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">TikTok</a></p>
+      </div>
+    </div>
+    <p class="footer__copy">© <span id="year"></span> Spa Lucia. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a class="whatsapp" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.5.7 4.8 2 6.8L3 29l6.8-2.2c1.9 1 4 1.6 6.2 1.6 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.2c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.3 1.3-3.9-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.8C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.2 16 26.2zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+  </a>
+
+  <script>
+// Número de WhatsApp de Spa Lucia (código de país + número, sin espacios ni "+")
+const WHATSAPP_NUMBER = "51999999999";
+
+const waLink = (text) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+// Botón flotante
+document.getElementById("waFloat").href = waLink("¡Hola Spa Lucia! Quisiera información sobre sus servicios.");
+
+// Año del pie de página
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Menú móvil
+const toggle = document.querySelector(".nav-toggle");
+const nav = document.querySelector(".nav");
+toggle.addEventListener("click", () => {
+  const open = nav.classList.toggle("is-open");
+  toggle.classList.toggle("is-open", open);
+  toggle.setAttribute("aria-expanded", open);
+});
+nav.querySelectorAll("a").forEach((a) =>
+  a.addEventListener("click", () => {
+    nav.classList.remove("is-open");
+    toggle.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+  })
+);
+
+// Pestañas de precios
+const tabs = document.querySelectorAll(".tab");
+tabs.forEach((tab) =>
+  tab.addEventListener("click", () => {
+    tabs.forEach((t) => t.classList.remove("is-active"));
+    document.querySelectorAll(".price-panel").forEach((p) => p.classList.remove("is-active"));
+    tab.classList.add("is-active");
+    document.getElementById(tab.dataset.tab).classList.add("is-active");
+  })
+);
+
+// Formulario de reserva → WhatsApp
+const form = document.getElementById("bookingForm");
+form.fecha.min = new Date().toISOString().split("T")[0];
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(form));
+  const msg =
+    `¡Hola Spa Lucia! Quiero reservar una cita:\n` +
+    `• Nombre: ${d.nombre}\n` +
+    `• Servicio: ${d.servicio}\n` +
+    `• Local: ${d.local}\n` +
+    `• Fecha: ${d.fecha}\n` +
+    `• Hora: ${d.hora}`;
+  window.open(waLink(msg), "_blank");
+});
+</script>
+</body>
+</html>
